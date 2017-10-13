@@ -1,0 +1,190 @@
+﻿@model AspNetCoreLocalization.Code.Controllers.PersonModel
+
+@using System.Threading
+@using AspNetCoreLocalization.Code.Controllers
+@using Microsoft.AspNetCore.Http
+@inject IStringLocalizer<AspNetCoreLocalization.Properties.CommonResources> commonLocalizer
+@inject IViewLocalizer viewLocalizer
+
+@{
+    ViewBag.Title = "Applied Culture Data";
+    string culture = ViewBag.Culture;
+
+    decimal number = 11395.99M;
+    var listLanguages = ViewBag.Languages;
+
+}
+@section header {
+    <style>
+        .flex-container {
+            display: flex;
+            flex-direction: column;
+            font-size: 1em;
+        }
+
+        .flex-row {
+            flex: 1 1 auto;
+            flex-direction: row;
+            display: flex;
+            flex-direction: row;
+        }
+
+            .flex-row > * {
+                margin-top: 8px;
+                flex: 0 1 auto;
+                padding: 8px 15px 8px 10px;
+            }
+
+                .flex-row > *:first-child {
+                    width: 250px;
+                    text-align: right;
+                }
+
+                .flex-row > *:nth-child(2), .flex-row > *:nth-child(4) {
+                    border: 1px solid #ddd;
+                    padding: 8px 25px;
+                }
+
+        .box-label {
+            font-weight: 600;
+        }
+
+        .row-break {
+            margin-top: 20px;
+        }
+    </style>
+}
+<div class="container" style="margin-top: 30px;">
+    <form action="" method="GET">
+        <div class="pull-right" style="width: 250px">
+            <select id="Language" name="culture" class="form-control"
+                    onchange="form.submit()">
+                @foreach (var li in listLanguages)
+                {
+                    var selectedText = li.Selected ? "selected" : null;
+                    <option value="@li.Value" selected="@selectedText">@li.Text</option>
+                }
+            </select>
+        </div>
+    </form>
+
+    <div class="page-header-text">
+        <i class="fa fa-globe" style="color: green"></i>
+        @viewLocalizer["PageTitle"]
+    </div>
+    
+    <div class="flex-container">
+
+        <div class="flex-container">
+
+            <div class="flex-row">
+                <div class="box-label">
+                    @viewLocalizer["CurrentCulture"]:
+                </div>
+                <div>
+                    @Thread.CurrentThread.CurrentCulture.IetfLanguageTag
+                </div>
+
+                <div class="box-label">
+                    @viewLocalizer["UICulture"]:
+                </div>
+                <div>
+                    @Thread.CurrentThread.CurrentUICulture.IetfLanguageTag
+                </div>
+            </div>
+
+            <div class="flex-row">
+                <div class="box-label">
+                    @viewLocalizer["BrowserLanguage"]:
+                </div>
+                <div>
+                    @this.Context.Request.Headers.GetCommaSeparatedValues("accept-language")[0]
+                </div>
+            </div>
+
+            <div class="flex-row row-break">
+                <div class="box-label">
+                    @viewLocalizer["CurrentLocalizedTime"]:
+                </div>
+                <div>
+                    @DateTime.Now.ToString("MMMM dd, yyyy HH:mm:ss")
+                </div>
+            </div>
+            <div class="flex-row">
+                <div class="box-label">
+                    @viewLocalizer["DecimalNumber"]:
+                </div>
+                <div>
+                    @(number.ToString("N2"))
+                </div>
+
+                <div class="box-label">
+                    @viewLocalizer["Currency"]:
+                </div>
+                <div>
+                    @(number.ToString("C2"))
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <div class="flex-row row-break">
+            <div class="box-label">
+                String Localizer (Common):
+            </div>
+            <div>
+                @commonLocalizer["HelloWorld", DateTime.Now]
+            </div>
+        </div>
+        <div class="flex-row">
+            <div class="box-label">
+                View Localizer:
+            </div>
+            <div>
+                @viewLocalizer["HelloWorld", DateTime.Now]
+            </div>
+        </div>
+            
+        <form action="" method="POST" >
+        <div class="flex-row row-break">
+            <div class="box-label">
+                @viewLocalizer["DataAnnotations"]
+            </div>
+            <div style="width: 500px">
+                <div class="form-group">
+                    <label class="control-label" for="form-group-input">Name</label>
+
+                    <input asp-for="Name" type="text"
+                           class="form-control"
+                           id="form-group-input" placeholder="Name">
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="address">Email</label>
+                    <input asp-for="Email"
+                           type="text" class="form-control"
+                           id="address" placeholder="Email Address">
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="age">@viewLocalizer["Age"]</label>
+                    <input asp-for="Age" type="text" class="form-control"
+                           id="age" placeholder="@viewLocalizer["Age"]" style="width: 60px; display: inline">
+                    <input asp-for="ReceiveEmail" type="checkbox"> Receive Emails
+                </div>
+
+                <button type="submit" name="btnSubmit" class="btn btn-primary">
+                    @viewLocalizer["SaveButton"]
+                </button>
+
+            </div>
+
+        
+        </div>
+        </form>
+    </div>
+
+</div>
+
