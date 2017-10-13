@@ -123,6 +123,12 @@
   <data name="Edit" xml:space="preserve">
     <value>Bearbeiten</value>
   </data>
+  <data name="English" xml:space="preserve">
+    <value>Englisch</value>
+  </data>
+  <data name="EnglishUs" xml:space="preserve">
+    <value>US Englisch</value>
+  </data>
   <data name="French" xml:space="preserve">
     <value>Französisch</value>
   </data>
