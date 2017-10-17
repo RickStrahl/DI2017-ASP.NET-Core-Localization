@@ -147,6 +147,9 @@
   <data name="PageTitle" xml:space="preserve">
     <value>Angewandte Kulturdaten</value>
   </data>
+  <data name="PleaseFixTheFollowingErrors" xml:space="preserve">
+    <value>Bitte beheben Sie die folgenden Fehler</value>
+  </data>
   <data name="ReceiveEmails" xml:space="preserve">
     <value>Emails anschicken</value>
   </data>

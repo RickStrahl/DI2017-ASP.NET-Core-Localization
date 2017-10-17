@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
+using AspNetCoreLocalization.Properties;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Localization;
@@ -31,7 +32,12 @@ namespace AspNetCoreLocalization
 
             services.AddMvc()                
                 .AddViewLocalization()
-                .AddDataAnnotationsLocalization();
+                .AddDataAnnotationsLocalization(opt =>
+                {
+                    opt.DataAnnotationLocalizerProvider = (type, factory) =>
+                        factory.Create(typeof(SharedViewModelValidations));
+
+                });
         }
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
@@ -64,12 +70,7 @@ namespace AspNetCoreLocalization
 
             app.UseStaticFiles();
 
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller}/{action=Index}/{id?}");
-            });
+            app.UseMvcWithDefaultRoute();
         }
     }
 }

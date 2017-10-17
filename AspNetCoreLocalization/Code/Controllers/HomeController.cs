@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AspNetCoreLocalization.Code.Utilities;
+using AspNetCoreLocalization.Code.ViewModels;
 using AspNetCoreLocalization.Properties;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -32,19 +33,13 @@ namespace AspNetCoreLocalization.Code.Controllers
         }
 
 
-
+        
         [HttpPost]
         [HttpGet]
         public IActionResult Cultures(PersonModel model = null)
         {
-            //if (model != null)
-            //{
-            //    if (!ModelState.IsValid)
-            //    {
-            //        ModelState.
-            //    }
-            //}
-        
+            if (Request.Method.ToLower() == "get")
+                ModelState.Clear();
 
             string culture = Request.Query["culture"];
             
@@ -72,10 +67,12 @@ namespace AspNetCoreLocalization.Code.Controllers
             Thread.CurrentThread.CurrentCulture = cl;
             Thread.CurrentThread.CurrentUICulture = cl;
 
-            return View();
+            if (ModelState.ErrorCount > 0)
+                model.HasErrors = true;
+
+            return View(model);
         }
-
-
+        
         
 
         public IActionResult ApiLinks()

@@ -4,23 +4,25 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AspNetCoreLocalization.Code.Controllers
+namespace AspNetCoreLocalization.Code.ViewModels
 {
     public class PersonModel
     {
         
-        [Required(ErrorMessage = "Name Required")]
+        [Required(ErrorMessage = "NameRequired")]
         public string Name { get; set; }
 
         [Required(ErrorMessage ="EmailRequired")]
         public string Email { get; set; }
        
         [Required(ErrorMessage ="AgeRequired")]
-        [Range(18,110,ErrorMessage ="Age must be between 18 and 110")]
+        [Range(18,110,ErrorMessage ="AgeRange")]
         public string Age { get; set; }
 
 
         public bool ReceiveEmail { get; set; }
+
+        public bool HasErrors { get; set; }
 
     }
 }

@@ -26,9 +26,5 @@
       <LastGenOutput>Properties.CommonResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Code\NewFolder\" />
-  </ItemGroup>
   
 </Project>

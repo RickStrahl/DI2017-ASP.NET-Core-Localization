@@ -1,4 +1,4 @@
-﻿@model AspNetCoreLocalization.Code.Controllers.PersonModel
+﻿@model AspNetCoreLocalization.Code.ViewModels.PersonModel
 
 @using System.Threading
 @using AspNetCoreLocalization.Code.Controllers
@@ -147,42 +147,62 @@
             </div>
         </div>
             
-        <form action="" method="POST" >
-        <div class="flex-row row-break">
-            <div class="box-label">
-                @viewLocalizer["DataAnnotations"]
+        <form action="" method="POST">
+            
+            
+
+            <div class="flex-row row-break">
+                
+                <div class="box-label">
+                    @viewLocalizer["DataAnnotations"]
+                </div>
+                <div style="width: 500px">
+                    
+                    @if (Model.HasErrors)
+                    {
+                        <div class="alert alert-warning">
+                            <h4>
+                                <i class="fa fa-warning"></i>   
+                                @viewLocalizer["PleaseFixTheFollowingErrors"]:                                
+                            </h4>
+                            <div asp-validation-summary="All" ></div>                        
+                        </div>
+                     }
+
+                    <div class="form-group">
+                        <label class="control-label" for="form-group-input">Name</label>
+
+                        <input asp-for="Name" type="text"
+                               class="form-control"
+                               id="form-group-input" placeholder="Name">
+                        <span asp-validation-for="Name"  class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="address">Email</label>
+                        <input asp-for="Email"
+                               type="text" class="form-control"
+                               id="address" placeholder="Email Address">
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="age">@viewLocalizer["Age"]</label>
+                        <input asp-for="Age" type="text" class="form-control"
+                               id="age" placeholder="@viewLocalizer["Age"]" style="width: 60px; display: inline">
+                        <input asp-for="ReceiveEmail" type="checkbox"> Receive Emails
+                        <br/>
+                        <span asp-validation-for="Age" class="text-danger"></span>
+                    </div>
+
+                    <button type="submit" name="btnSubmit" class="btn btn-primary">
+                        @viewLocalizer["SaveButton"]
+                    </button>
+
+                </div>
+
+
             </div>
-            <div style="width: 500px">
-                <div class="form-group">
-                    <label class="control-label" for="form-group-input">Name</label>
-
-                    <input asp-for="Name" type="text"
-                           class="form-control"
-                           id="form-group-input" placeholder="Name">
-                </div>
-
-                <div class="form-group">
-                    <label class="control-label" for="address">Email</label>
-                    <input asp-for="Email"
-                           type="text" class="form-control"
-                           id="address" placeholder="Email Address">
-                </div>
-
-                <div class="form-group">
-                    <label class="control-label" for="age">@viewLocalizer["Age"]</label>
-                    <input asp-for="Age" type="text" class="form-control"
-                           id="age" placeholder="@viewLocalizer["Age"]" style="width: 60px; display: inline">
-                    <input asp-for="ReceiveEmail" type="checkbox"> Receive Emails
-                </div>
-
-                <button type="submit" name="btnSubmit" class="btn btn-primary">
-                    @viewLocalizer["SaveButton"]
-                </button>
-
-            </div>
-
-        
-        </div>
         </form>
     </div>
 
