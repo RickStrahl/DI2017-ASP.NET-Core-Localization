@@ -37,3 +37,12 @@ app.UseRequestLocalization(new RequestLocalizationOptions
     SupportedUICultures = supportedCultures
 });
 ```
+
+### Westwind Globalization Add Localization
+
+```cs
+services.AddSingleton(typeof(IStringLocalizerFactory), typeof(DbResStringLocalizerFactory));
+services.AddSingleton(typeof(IHtmlLocalizer), typeof(DbResHtmlLocalizerFactory));
+
+services.AddWestwindGlobalization();
+```         
