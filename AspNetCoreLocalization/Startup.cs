@@ -1,17 +1,9 @@
-using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Threading.Tasks;
-using AspNetCoreLocalization.Properties;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore.Mvc.Localization;
-using Microsoft.AspNetCore.Mvc.Razor;
-
 
 namespace AspNetCoreLocalization
 {
@@ -30,14 +22,16 @@ namespace AspNetCoreLocalization
             services
                 .AddLocalization(options => options.ResourcesPath = "Properties");
 
-            services.AddMvc()                
+            services.AddMvc()
                 .AddViewLocalization()
-                .AddDataAnnotationsLocalization(opt =>
-                {
-                    opt.DataAnnotationLocalizerProvider = (type, factory) =>
-                        factory.Create(typeof(SharedViewModelValidations));
+                .AddDataAnnotationsLocalization();
 
-                });
+                // use a single shared ResourceSet instead            
+                //.AddDataAnnotationsLocalization(opt =>
+                //{
+                //    opt.DataAnnotationLocalizerProvider = (type, factory) =>
+                //        factory.Create(typeof(SharedViewModelValidations));
+                //});
         }
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
