@@ -40,6 +40,15 @@ app.UseRequestLocalization(new RequestLocalizationOptions
 
 ### Westwind Globalization Add Localization
 
+Configuration `DResourceConfiguration.json` - make sure to `Copy if newer` is set
+
+```json
+"ConnectionString": "server=.;database=localizations;integrated security=yes",
+  "ResourceTableName": "Localizations_DevIntersection",
+```  
+
+Startup Configuration in `ConfigureServices`:
+
 ```cs
 services.AddSingleton(typeof(IStringLocalizerFactory), typeof(DbResStringLocalizerFactory));
 services.AddSingleton(typeof(IHtmlLocalizer), typeof(DbResHtmlLocalizerFactory));
