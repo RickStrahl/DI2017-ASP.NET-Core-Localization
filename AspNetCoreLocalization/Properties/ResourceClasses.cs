@@ -10,4 +10,7 @@ namespace AspNetCoreLocalization.Properties
     /// </summary>
     public class CommonResources
     {  }
+
+    public class SharedViewModelValidations
+    { }
 }

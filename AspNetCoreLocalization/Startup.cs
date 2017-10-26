@@ -49,7 +49,7 @@ namespace AspNetCoreLocalization
             {
                 new CultureInfo("en-US"),
                 new CultureInfo("en"),
-                new CultureInfo("de-DE"),
+                //new CultureInfo("de-DE"),
                 new CultureInfo("de"),
                 new CultureInfo("fr"),
                 //new CultureInfo("zh"),

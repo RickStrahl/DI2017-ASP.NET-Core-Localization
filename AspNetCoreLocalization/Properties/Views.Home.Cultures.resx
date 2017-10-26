@@ -139,11 +139,10 @@
     <value>Decimal Number</value>
   </data>
   <data name="Email" xml:space="preserve">
-    <value>Email</value>
+    <value>Email&lt;script&gt;alert('hacked')&lt;/script&gt;</value>
   </data>
   <data name="HelloWorld" xml:space="preserve">
-    <value>Hello World, Software devs. Time is: {0:MMMM dd, yyyy HH:mm:ss}</value>
-    <comment>Whaaaaa?</comment>
+    <value>Hello World  from this &lt;b&gt;View&lt;/b&gt;. Time is: {0:MMMM dd} - {0:T}</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Name</value>

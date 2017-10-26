@@ -26,7 +26,6 @@ namespace AspNetCoreLocalization.Code.Controllers
         }
 
         [Route("")]
-        // GET: /<controller>/
         public IActionResult Index()
         {            
             return View();

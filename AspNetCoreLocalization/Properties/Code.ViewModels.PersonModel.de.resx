@@ -126,6 +126,12 @@
   <data name="EmailRequired" xml:space="preserve">
     <value>Email muss angegeben werden</value>
   </data>
+  <data name="HelloWorld" xml:space="preserve">
+    <value>Hallo Welt aus Vegas von DevIntersection</value>
+  </data>
+  <data name="HelloWorldFormat" xml:space="preserve">
+    <value>Hallo Welt von DevIntersection. Time is: {0:hh:mm:ssa}</value>
+  </data>
   <data name="NameRequired" xml:space="preserve">
     <value>Name muss angegeben werden</value>
   </data>

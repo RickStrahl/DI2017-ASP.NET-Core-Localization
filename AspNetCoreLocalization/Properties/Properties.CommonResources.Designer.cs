@@ -115,7 +115,7 @@ namespace AspNetCoreLocalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hello world from COMMON Resources. Time is: {0:HH:mm:ss}.
+        ///   Looks up a localized string similar to Hello world from &lt;b&gt;COMMON&lt;/b&gt; Resources. Time is: {0:T}.
         /// </summary>
         public static string HelloWorld {
             get {

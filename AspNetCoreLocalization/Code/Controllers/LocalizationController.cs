@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using AspNetCoreLocalization.Properties;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.Localization;
 using Microsoft.Extensions.Localization;
 
@@ -37,35 +38,40 @@ namespace AspNetCoreLocalization.Code.Controllers
         [HttpGet]
         [Route("Localizer")]
         public string Localizer(string languageId)
-        {            
-            return _localizer["HelloWorld",new DateTime()];
+        {
+            //SetUserLocale(httpContext: HttpContext);
+            return _localizer["HelloWorld"];
         }
+
+        [HttpGet]
+        [Route("FormatLocalizer")]
+        public string FormatLocalizer(string languageId)
+        {
+             return _localizer["HelloWorldFormat", DateTime.Now];
+        }
+
 
         [HttpGet]
         [Route("CommonLocalizer")]
         public string CommonLocalizer(string languageId)
         {
-            return commonLocalizer["HelloWorld", new DateTime()];
+            return commonLocalizer["HelloWorld", DateTime.Now];
         }
 
 
         [HttpGet]
         [Route("HtmlLocalizer")]
-        public string HtmlLocalizer(string languageId)
+        public LocalizedHtmlString HtmlLocalizer(string languageId)
         {
-            return _localizer["HelloWorld"];
+            return _htmlLocalizer["HelloWorldFormat",DateTime.Now];
         }
 
-
-
-
-
-        //[HttpGet]
-        //[Route("StronglyTypedResource")]
-        //public string StronglyTypedResource(string languageId)
-        //{
-        //    return AppResources.Resources.HelloWorld;
-        //}
+        [HttpGet]
+        [Route("StronglyTypedResource")]
+        public string StronglyTypedResource(string languageId)
+        {
+            return AspNetCoreLocalization.Properties.Properties_CommonResources.Today;
+        }
 
 
 

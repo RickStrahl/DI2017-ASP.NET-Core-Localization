@@ -44,7 +44,7 @@ Configuration `DResourceConfiguration.json` - make sure to `Copy if newer` is se
 
 ```json
 "ConnectionString": "server=.;database=localizations;integrated security=yes",
-  "ResourceTableName": "Localizations_DevIntersection",
+"ResourceTableName": "Localizations_DevIntersection",
 ```  
 
 Startup Configuration in `ConfigureServices`:

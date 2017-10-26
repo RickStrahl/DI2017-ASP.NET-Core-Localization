@@ -136,10 +136,10 @@
     <value>Dataanmerkungen</value>
   </data>
   <data name="Email" xml:space="preserve">
-    <value />
+    <value>Email</value>
   </data>
   <data name="HelloWorld" xml:space="preserve">
-    <value>Hallo Welt, Software Entwickler!  Die Zeit ist: {0:MMMM dd, yyyy HH:mm:ss}</value>
+    <value>Hallo Welt vom MVC View!  Die Zeit ist: {0:MMMM dd} - {0:T}</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Name</value>

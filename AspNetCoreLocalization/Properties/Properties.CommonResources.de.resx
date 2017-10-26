@@ -136,7 +136,7 @@
     <value>Deutsch</value>
   </data>
   <data name="HelloWorld" xml:space="preserve">
-    <value>Hallo Welt von den COMMON Resourcen. Es ist: {0:HH:mm:ss}</value>
+    <value>Hallo Welt von den COMMON Resourcen. Es ist: {0:T}</value>
   </data>
   <data name="Home" xml:space="preserve">
     <value>Starten</value>

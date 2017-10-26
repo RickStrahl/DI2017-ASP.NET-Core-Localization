@@ -118,6 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="HelloWorld" xml:space="preserve">
-    <value>Bonjour le monde! Le temp est: {0:MMMM dd, yyyy HH:mm:ss}</value>
+    <value>Bonjour le monde! Le temp est: {0:MMMM dd, yyyy} - {0:T}</value>
   </data>
 </root>

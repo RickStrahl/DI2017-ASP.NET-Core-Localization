@@ -12,7 +12,6 @@
 
     decimal number = 11395.99M;
     var listLanguages = ViewBag.Languages;
-
 }
 @section header {
     <style>
@@ -29,29 +28,25 @@
             flex-direction: row;
         }
 
-            .flex-row > * {
-                margin-top: 8px;
-                flex: 0 1 auto;
-                padding: 8px 15px 8px 10px;
-            }
-
-                .flex-row > *:first-child {
-                    width: 250px;
-                    text-align: right;
-                }
-
-                .flex-row > *:nth-child(2), .flex-row > *:nth-child(4) {
-                    border: 1px solid #ddd;
-                    padding: 8px 25px;
-                }
-
-        .box-label {
-            font-weight: 600;
+        .flex-row > * {
+            margin-top: 8px;
+            flex: 0 1 auto;
+            padding: 8px 15px 8px 10px;
         }
 
-        .row-break {
-            margin-top: 20px;
+        .flex-row > *:first-child {
+            width: 250px;
+            text-align: right;
         }
+
+        .flex-row > *:nth-child(2), .flex-row > *:nth-child(4) {
+            border: 1px solid #ddd;
+            padding: 8px 25px;
+        }
+
+        .box-label { font-weight: 600; }
+
+        .row-break { margin-top: 20px; }
     </style>
 }
 <div class="container" style="margin-top: 30px;">
@@ -72,7 +67,7 @@
         <i class="fa fa-globe" style="color: green"></i>
         @viewLocalizer["PageTitle"]
     </div>
-    
+
     <div class="flex-container">
 
         <div class="flex-container">
@@ -129,7 +124,6 @@
         </div>
 
 
-
         <div class="flex-row row-break">
             <div class="box-label">
                 String Localizer (Common):
@@ -146,40 +140,39 @@
                 @viewLocalizer["HelloWorld", DateTime.Now]
             </div>
         </div>
-            
+
         <form action="" method="POST">
-            
-            
+
 
             <div class="flex-row row-break">
-                
+
                 <div class="box-label">
                     @viewLocalizer["DataAnnotations"]
                 </div>
                 <div style="width: 500px">
-                    
+
                     @if (Model.HasErrors)
                     {
                         <div class="alert alert-warning">
                             <h4>
-                                <i class="fa fa-warning"></i>   
-                                @viewLocalizer["PleaseFixTheFollowingErrors"]:                                
+                                <i class="fa fa-warning"></i>
+                                @viewLocalizer["PleaseFixTheFollowingErrors"]:
                             </h4>
-                            <div asp-validation-summary="All" ></div>                        
+                            <div asp-validation-summary="All"></div>
                         </div>
-                     }
+                    }
 
                     <div class="form-group">
-                        <label class="control-label" for="form-group-input">Name</label>
+                        <label class="control-label" for="form-group-input">@viewLocalizer["Name"]</label>
 
                         <input asp-for="Name" type="text"
                                class="form-control"
                                id="form-group-input" placeholder="Name">
-                        <span asp-validation-for="Name"  class="text-danger"></span>
+                        <span asp-validation-for="Name" class="text-danger"></span>
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label" for="address">Email</label>
+                        <label class="control-label" for="address">@viewLocalizer["{0}","Email"]</label>
                         <input asp-for="Email"
                                type="text" class="form-control"
                                id="address" placeholder="Email Address">
@@ -207,4 +200,3 @@
     </div>
 
 </div>
-

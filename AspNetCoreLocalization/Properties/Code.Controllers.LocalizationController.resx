@@ -118,6 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="HelloWorld" xml:space="preserve">
-    <value>Hello World, Software devs. Time is: {0:MMMM dd, yyyy HH:mm:ss}</value>
+    <value>Hello World from Vegas and &lt;b&gt;DevIntersection&lt;/b&gt;.</value>
+  </data>
+  <data name="HelloWorldFormat" xml:space="preserve">
+    <value>Hello World from &lt;b&gt;DevIntersection&lt;/b&gt;. Time is: {0:MMMM dd} - {0:T}</value>
   </data>
 </root>

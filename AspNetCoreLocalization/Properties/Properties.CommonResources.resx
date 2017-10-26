@@ -136,7 +136,7 @@
     <value />
   </data>
   <data name="HelloWorld" xml:space="preserve">
-    <value>Hello world from COMMON Resources. Time is: {0:HH:mm:ss}</value>
+    <value>Hello world from &lt;b&gt;COMMON&lt;/b&gt; Resources. Time is: {0:T}</value>
   </data>
   <data name="Home" xml:space="preserve">
     <value>Home</value>
