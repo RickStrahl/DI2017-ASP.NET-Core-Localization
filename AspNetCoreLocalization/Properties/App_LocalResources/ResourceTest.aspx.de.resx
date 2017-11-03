@@ -58,22 +58,7 @@
    <resheader name="writer">
       <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
    </resheader>
-   <data name="AgeRange" xml:space="preserve">
-      <value>Age must be between 18 and 110</value>
-   </data>
-   <data name="AgeRequired" xml:space="preserve">
-      <value>Age can't be empty</value>
-   </data>
-   <data name="EmailRequired" xml:space="preserve">
-      <value>Email is required</value>
-   </data>
-   <data name="HelloWorld" xml:space="preserve">
-      <value>Hello World from DevIntersection!</value>
-   </data>
-   <data name="HelloWorldFormat" xml:space="preserve">
-      <value>Hello World from DevIntersection. Time is: {0:hh:mm:ssa}</value>
-   </data>
-   <data name="NameRequired" xml:space="preserve">
-      <value>Name is required</value>
+   <data name="lblHelloWorldLabel.Text" xml:space="preserve">
+      <value>Hallo Welt (lokal)</value>
    </data>
 </root>

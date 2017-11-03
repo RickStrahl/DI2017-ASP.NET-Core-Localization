@@ -61,11 +61,6 @@ namespace AspNetCoreLocalization.Code.Controllers
                 sel.Selected = true;
             ViewBag.Languages = listLanguages;
 
-
-            var cl = new CultureInfo("de-DE"); // this has no effect
-            Thread.CurrentThread.CurrentCulture = cl;
-            Thread.CurrentThread.CurrentUICulture = cl;
-
             if (ModelState.ErrorCount > 0)
                 model.HasErrors = true;
 
